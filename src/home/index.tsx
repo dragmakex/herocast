@@ -235,18 +235,18 @@ const Home = ({ children }: { children: React.ReactNode }) => {
           icon: <MagnifyingGlassIcon className="h-6 w-6 shrink-0" aria-hidden="true" />,
           shortcut: '/',
         },
-        {
-          name: 'Notifications',
-          router: '/notifications',
-          icon: <BellIcon className="h-6 w-6 shrink-0" aria-hidden="true" />,
-          shortcut: 'Shift + N',
-        },
-        {
-          name: 'Analytics',
-          router: '/analytics',
-          icon: <ChartBarIcon className="h-6 w-6 shrink-0" aria-hidden="true" />,
-          shortcut: 'Shift + A',
-        },
+        // {
+        //   name: 'Notifications',
+        //   router: '/notifications',
+        //   icon: <BellIcon className="h-6 w-6 shrink-0" aria-hidden="true" />,
+        //   shortcut: 'Shift + N',
+        // },
+        // {
+        //   name: 'Analytics',
+        //   router: '/analytics',
+        //   icon: <ChartBarIcon className="h-6 w-6 shrink-0" aria-hidden="true" />,
+        //   shortcut: 'Shift + A',
+        // },
         {
           name: 'Profile',
           router: '/profile',
@@ -263,12 +263,12 @@ const Home = ({ children }: { children: React.ReactNode }) => {
           router: '/upgrade',
           icon: <ArrowUpCircleIcon className="h-6 w-6 shrink-0" aria-hidden="true" />,
         },
-        {
-          name: 'Channels',
-          router: '/channels',
-          icon: <RectangleGroupIcon className="h-6 w-6 shrink-0" aria-hidden="true" />,
-          shortcut: 'Shift + C',
-        },
+        // {
+        //   name: 'Channels',
+        //   router: '/channels',
+        //   icon: <RectangleGroupIcon className="h-6 w-6 shrink-0" aria-hidden="true" />,
+        //   shortcut: 'Shift + C',
+        // },
         {
           name: 'Accounts',
           router: '/accounts',
@@ -476,7 +476,7 @@ const Home = ({ children }: { children: React.ReactNode }) => {
           <div className="hidden lg:flex lg:grow lg:sticky lg:h-screen lg:inset-y-0 lg:left-0 lg:z-10 lg:full lg:overflow-y-auto lg:bg-background border-r border-muted">
             {/* Sidebar component, swap this element with another sidebar if you like */}
             <div className="flex grow flex-col flex-1 gap-y-5 overflow-y-auto bg-background px-6">
-              <Link href="/feeds" className="flex h-16 shrink-0 items-center hover:cursor-pointer">
+              <Link href="/post" className="flex h-16 shrink-0 items-center hover:cursor-pointer">
                 <h2 className="text-2xl font-bold leading-7 text-foreground sm:truncate sm:tracking-tight">herocast</h2>
               </Link>
               <div className="flex flex-col justify-between">
@@ -525,7 +525,13 @@ const Home = ({ children }: { children: React.ReactNode }) => {
             </div>
           </div>
           <div className="grid grid-cols-[1fr] md:grid-cols-[1fr_12rem] lg:grid-cols-[1fr_16rem] relative">
-            <div className={sidebarType === RIGHT_SIDEBAR_ENUM.NONE ? 'md:col-span-2 w-full' : ''}>
+            <div
+              className={
+                sidebarType === RIGHT_SIDEBAR_ENUM.NONE
+                  ? 'md:col-span-2 w-full overflow-x-auto'
+                  : 'w-full overflow-x-auto'
+              }
+            >
               {/* Sticky header */}
               {(title || headerActions) && (
                 <div className="sticky top-0 z-10 flex h-16 shrink-0 items-center gap-x-6 md:gap-x-0 border-b border-muted bg-background px-4 sm:px-6 md:px-4">
